@@ -1,0 +1,13 @@
+name,email,age,phone,city,signup_date
+  John Okafor ,JOHN.OKAFOR@Example.COM ,28,0803 555 0101,lagos,2024-01-15
+amina Bello,amina.bello@@example,34,0805-555-0102,Abuja,15/02/2024
+John Okafor,JOHN.OKAFOR@Example.COM,28,0803 555 0101,lagos,2024-01-15
+,No name@example.com,41,,Ikeja,2024-03-01
+david eze,david.eze@example.com,not_a_number,0807 555 0104, enugu ,03/10/2024
+MARY JAMES,Mary.James@EXAMPLE.com,150,call-me,Kano,2024-13-45
+Peter Obi,peter.obi@example.com,29,+234 803 555 0106,Onitsha,2024/05/20
+sara Lee,sara Lee@example.com,,0809 555 0107,Benin City,20-06-2024
+Tom Ade,tom@example.com,37,0803 555 0108,Ibadan,2024-07-04
+Tom Ade,tom@example.com,37,0803 555 0108,Ibadan,2024-07-04
+  ,  , , , ,
+zainab Yusuf,zainab@example.com,26,0806 555 0109,kaduna,2024-08-19
