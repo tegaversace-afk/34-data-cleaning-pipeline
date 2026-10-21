@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Cleaning Pipeline · Team 7</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<header>
+  <h1>🧹 Data Cleaning Pipeline</h1>
+  <p>Team 7 · Upload a messy CSV → get a quality report + a cleaned file</p>
+  <p class="flow">Ingest → Validate → Transform → Report → Download</p>
+</header>
+
+<main>
+  <!-- STEP 1 -->
+  <section class="card">
+    <h2>1 · Upload your CSV</h2>
+    <div id="dropzone">
+      <p>Drag &amp; drop a <strong>.csv</strong> file here, or</p>
+      <label class="btn secondary" for="fileInput">Choose file</label>
+      <input type="file" id="fileInput" accept=".csv" hidden />
+      <p id="fileName" class="muted">No file chosen · max 5 MB</p>
+    </div>
+    <div class="actions">
+      <button id="uploadBtn" class="btn primary">Upload &amp; Clean</button>
+      <button id="sampleBtn" class="btn">▶ Use Sample Data (no file needed)</button>
+      <a class="btn link" href="/api/sample">Download the messy sample CSV</a>
+    </div>
+    <div id="errorBox" class="error" hidden></div>
+    <div id="loading" class="muted" hidden>⏳ Cleaning your data…</div>
+  </section>
+
+  <!-- STEP 2 + 3 -->
+  <section id="results" class="card" hidden>
+    <h2>2 · Quality report <span id="resultFile" class="muted"></span></h2>
+    <div id="stats" class="stats"></div>
+    <div id="byColumn" class="pills"></div>
+
+    <h3>Issues found</h3>
+    <div class="table-wrap"><table id="issuesTable"></table></div>
+    <p id="noIssues" class="ok" hidden>✅ No issues found — this file was already clean.</p>
+
+    <h3>Preview — before cleaning</h3>
+    <div class="table-wrap"><table id="beforeTable"></table></div>
+
+    <h3>Preview — after cleaning</h3>
+    <div class="table-wrap"><table id="afterTable"></table></div>
+
+    <h2>3 · Download</h2>
+    <a id="downloadBtn" class="btn primary big" href="#">⬇ Download cleaned CSV</a>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="card">
+    <h2>Previous runs</h2>
+    <div id="history" class="muted">No runs yet this session.</div>
+  </section>
+
+  <section class="card muted small">
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Ingest</strong> (<code>ingest.py</code>) reads the CSV safely and rejects empty/oversized/non-CSV files.</li>
+      <li><strong>Validate</strong> (<code>validate.py</code>) checks emails, ages, phones, dates and missing values.</li>
+      <li><strong>Transform</strong> (<code>transform.py</code>) trims spaces, fixes casing, standardises dates, removes duplicates.</li>
+      <li><strong>Report + Storage</strong> (<code>report.py</code>, <code>database.py</code>) builds statistics and saves the run in SQLite.</li>
+      <li><strong>API + UI</strong> (<code>main.py</code>, <code>static/</code>) — FastAPI endpoints, this dashboard, Render deployment.</li>
+    </ol>
+    <p>Interactive API docs: <a href="/docs">/docs</a> · Health check: <a href="/health">/health</a></p>
+  </section>
+</main>
+<footer>Team 7 — Daniels, Doris, Emmanuel, Favour, Tega · Synthetic sample data only</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
