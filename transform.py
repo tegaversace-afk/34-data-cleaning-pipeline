@@ -51,3 +51,4 @@ def clean_rows(rows, headers):
         cleaned.append(new_row)
 
     return cleaned, duplicates, changes
+
