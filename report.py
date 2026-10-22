@@ -22,3 +22,4 @@ def build_report(original_rows, cleaned_rows, issues, duplicates_removed, change
         "issues_by_column": dict(Counter(i["column"] for i in issues)),
         "issues_by_type": dict(Counter(i["error"] for i in issues)),
     }
+
